@@ -1,0 +1,392 @@
+[33mbb00263[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m mjx hand
+[33m992955d[m fix: push reward function and checker try to fix: robot with hand problem but not succeed yet
+[33m43ce8de[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fix/slide (#337)
+[33m0fb2408[m mujoco support torque control (#332)
+[33m729767d[m [fix] typo error in randomCfg (#336)
+[33m235b031[m [update] dockerfile to add option for using isaaclab v2.1.0 instead of v1.4.0 (#334)
+[33m1111ec4[m [fix]: temporarily fix isaacgym assets to fixed route (#331)
+[33m720aba7[m [fix]: align rl-infra to lastest metasim (#330)
+[33m133f0b7[m [feat] skillblender tasks and dynamics domain randomization for isaacgym (#307)
+[33mf2e8ca6[m [fix] get_started instruction for fasttd3 (#325)
+[33mf652ca8[m [pre-commit.ci] pre-commit autoupdate (#328)
+[33m28939c8[m [add] g1 and cross embodiment testing (#304)
+[33m5fc1e5e[m [fix] train_ppo_vec.py bug; isaaclab return time_out on device (#326)
+[33m147f7ae[m [doc,add] task table like ruff rules with description generator from docstring (#322)
+[33m7399bff[m [doc]fix FastTD3 get_started instructions
+[33m4572072[m Fix/stair (#311)
+[33me8bf91c[m fixed mujoco viewer import (#319)
+[33m2620a5d[m RL INFRA!!! (#274)
+[33m2fd9615[m [add] fasttd3 training to get_started (#297)
+[33m8e3b2eb[m [update] doc for real2sim (#230)
+[33m2cf4b2f[m [pre-commit.ci] pre-commit autoupdate (#313)
+[33m54003e6[m [add] sensor support for mjx (#312)
+[33m97e95f6[m [add] Go1-feet-only quad configuration for MuJoCo-Playground (#314)
+[33m4b73065[m [add] add full-body collision model for the H1 robot (#315)
+[33m542dd51[m [fix] humanoidbench h1 sit task (#305)
+[33mb22193b[m [doc,update] move hf data structure to developer guide (#306)
+[33m4ab698c[m [update] fasttd3 training use iio to save mp4 (#301)
+[33md84ed16[m [doc] update fasttd3 (#298)
+[33m16cfda2[m [bugfix] humanoidbench rewards (#302)
+[33me8da3a3[m [pre-commit.ci] pre-commit autoupdate (#303)
+[33mfe0befe[m Update index.md
+[33m62f5e9b[m Update README.md
+[33m63b6e69[m [bugfix] isaacgym env create probelm (#294)
+[33mdc1c965[m [bugfix] StandReward in humanoidbench (#295)
+[33m142f65e[m perf/tensorize-robot-local-velocity (#290)
+[33m2850d7f[m [add] rollout render for fasttd3 (#289)
+[33m11208a0[m [add] env_spacing to ScenarioCfg (#287)
+[33mafc07b3[m [performance] mjx handler accelerate (#288)
+[33m1be25b6[m [fix] align quaternion in humanoid infra (#286)
+[33m056b5ce[m [bugfix] simulators set states expires states cache
+[33m1bef357[m [fix] teleop_keyboard.py when using mujoco and states are all on cpu (#285)
+[33mf5ced27[m [doc,update] supported simulators
+[33medbcdf8[m [fix] bugs for RL infra and configs caused by multirobots (#279)
+[33m55864e2[m update state_consistency test code, delete isaacgym simulate. update xyzw_to_wxyz code with indexing to avoid latency
+[33m3150c8a[m fix isaacgym tensor regresh issue (#278)
+[33mb26abcb[m [fix] IsaacGym quaternion bugs (#277)
+[33m8e1a96e[m [update] github bug report template
+[33mf8e68c0[m [add,fix] add skillblender reaching and h1_wrist_cfg; fix isaacgym (#275)
+[33m8107a72[m [doc] add skillblender back (#271)
+[33m9872d2c[m [doc] add skillblender_rl.md back (#270)
+[33md00c22d[m [feature] add FastTD3 with config management and MJX support (#243)
+[33mf002933[m Reorganize doc (#266)
+[33m55fe544[m [update] no default camera
+[33m986e7bc[m [fix] isaaclab states not update (#265)
+[33m9d2b5c4[m update readme
+[33m8f0341d[m update readme
+[33md973f85[m update readme
+[33mf29cad6[m update readme
+[33m57a5365[m update readme
+[33m7e49014[m Update README.md
+[33m4fcda49[m add skillblender:walking and rsl_rl wrapper (#218)
+[33m122b669[m [bugfix] camera state bug introduced in #264
+[33m7069482[m [add] feature to isaacgym that toggle sync viewer by press V (#217)
+[33m3e81239[m [add] isaaclab support segmentation output in camera state (#264)
+[33m0c2206f[m [add] github issue template (#262)
+[33m74378cb[m Bug/fix action interface (#256)
+[33m4779d34[m [fix] roboverse_learn/eval.py use correct action format (#260)
+[33m00c5777[m [refactor] autodownload use hf_api.file_exists instead of hf_fs.exists to speed up; fix comments (#259)
+[33m9d4efec[m [refactor] autodownload check hf exists when local not exists (#258)
+[33m79a9bfd[m [bugfix] isaaclab scene don't autodownload (#257)
+[33m993a0b0[m [fix] isaaclab and isaacgym support tensorized action (#251)
+[33m56ebeb9[m [fix] isaacgym get_joint_names order (#250)
+[33m22a6984[m [pre-commit.ci] pre-commit autoupdate (#242)
+[33m93224d3[m [performance] add caching for get_states method (#240)
+[33m98e662d[m [feature] IsaacLab support multiple robots (#208)
+[33m17f8684[m [fix] specify device in BaseChecker (#233)
+[33mac74dfa[m Feature/set timestep and use JIT forward in set_state (#219)
+[33m24e1388[m [fix] isaacgym dt definition correct (#232)
+[33mb0aad70[m [fix] isaacgym fix bug in get robot state; better state consistency for set_state  (#216)
+[33m330ff5f[m [feature] mujoco support parallel envs (#229)
+[33m3b34b65[m [pre-commit.ci] pre-commit autoupdate (#222)
+[33m33b5907[m [bugfix] fix mujoco states consistency (#215)
+[33m3b4f257[m [fix] isaacgym use stiffness and damping specified by urdf by default
+[33m6f7c869[m [delete] empty_demo.py
+[33m80e2b4f[m [add] shadow hand (#212)
+[33mac30e5b[m [feature] isaacgym can read from mjcf file (#211)
+[33m4b65c50[m [add] robot unitree dex3-1 (#190)
+[33mc1b8364[m [update] arnold tapwater scene path (#210)
+[33m12e62a4[m [pre-commit.ci] pre-commit autoupdate (#209)
+[33m74fa3f7[m [fix] mujoco&mjx cvel bugs (#204)
+[33m219c435[m [update] update unitree h1-2 (w/o hand) usd path
+[33m8db4a2b[m [bugfix,doc] isaacgym set joint stiffness=800, damping=40 when not specified (#207)
+[33ma2ff27f[m [delete] unused data and doc (#206)
+[33m14c7bd2[m add viewer for MJX handler&fix bugs for set_states (#202)
+[33mf89ec81[m Revert "fix cvel bugs for mujoco and mjx"
+[33ma4e0d1d[m fix cvel bugs for mujoco and mjx
+[33m3c03cf3[m update wechat code
+[33m1c048a1[m [refactor] reorganize `objects.py` (#200)
+[33md4bb09c[m [doc,update] metasim/sim docstrings; update pyproject ruff rules ignore (#199)
+[33m9936bd5[m [refactor] standardize supported simulator (#198)
+[33ma9100ee[m [refactor] reorganize and add docstring for `base_robot_cfg.py` (#197)
+[33m73d6d55[m [pre-commit.ci] pre-commit autoupdate (#193)
+[33m76a8e5d[m [add] mjx support autodownload too from mjx_mjcf_path (#196)
+[33m5ce2046[m [refactor] mujoco simplify code (#195)
+[33m6b38c59[m [fix] fix bug that camera state is not converted from tensor state to nested state, introduced in #159 (#194)
+[33m2eb24ed[m [add] MJX handler (#159)
+[33m0540533[m [doc] RoboVerse Benchmark Update (#191)
+[33me400c3b[m [bugfix] isaaclab dt
+[33me1146c0[m [quickfix] fix docstring for metasim/cfg/__init__.py
+[33m7e63f56[m [bugfix] add reaching tasj traj
+[33mc7dce33[m [pre-commit.ci] pre-commit autoupdate (#188)
+[33me37ce87[m [update] readme for dashboard testing
+[33mc36a4a7[m [doc] support matrix (#182)
+[33m1c1429d[m [fix] isaacgym dict access and update docs (#183)
+[33m1c9fa44[m [fix] isaacgym humanoid training pipeline  (#164)
+[33m763e1ef[m [fix] sapien3 support headless
+[33m244df43[m [doc,update] update docker installation statistics in doc
+[33mcd07e4d[m [fix] docker conda init (#177)
+[33mf401be9[m [fix] fix isaaclab render_interval warning
+[33mf79ff07[m [fix] fix genesis non-headless usage in docker (#176)
+[33m6949684[m Update 0_static_scene.md to use sapien3 (#175)
+[33m43b951e[m [update] align direct_rl_env with IsaacLab v1.4.1 version (#153)
+[33m4133f45[m [fix] fix docker library conflict by updating LD_LIBRARY_PATH only when metasim_isaacgym conda env is activated (#174)
+[33m6d3fed3[m [fix] resolve mamba init command not found in docker (#171)
+[33m071ccd6[m [update] fix readme and doc bibtex
+[33m96ec759[m [update] update maniskill:pick_cube traj_filepath
+[33m341225f[m [refactor] remove mjcf_path from PrimitiveCubeCfg (#168)
+[33m5c95833[m update readme: remove star history
+[33m3a9d938[m doc: resolve warning
+[33mad14c10[m Doc/checker cfgs (#167)
+[33mef2ab69[m [refactor] remove import rootutils in metasim module (#166)
+[33m40f815d[m isaaclab support setting actuator stiffness and damping (#152)
+[33m73ffd49[m [refactor] restructure the autodownload code into FileDownloader, speed up when there are multiple objects in scenario (#165)
+[33m1e1cf63[m quickfix: scripts/clean_usd.py takes collision_mode as argument and can overwrite existed collision api
+[33mfdd25d2[m quickfix: autodownload skip cylinder
+[33mdf530fc[m [pre-commit.ci] pre-commit autoupdate (#160)
+[33m053619f[m Revert "run humanoid parrallel training (#162)" (#163)
+[33mea6a1a5[m run humanoid parrallel training (#162)
+[33m99c4bd3[m update wechat code
+[33ma6e67ca[m Update render.md
+[33md10e63f[m update ignore for cust
+[33maa3d8ca[m Feature/update clean usd script (#155)
+[33m77675c8[m isaaclab ShaderFixer also repair opacity_texture (#154)
+[33mc215c13[m quickfix: checker operators device
+[33ma6a23ef[m Simpler env move near (#91)
+[33m81ce790[m infra script: fix teleop_keyboard to use latest tensor states (#136)
+[33ma9caf37[m fix evaluation bug of humanoidbench (#133)
+[33me578c28[m Feature/fix102 (#131)
+[33m55a64f9[m [pre-commit.ci] pre-commit autoupdate (#144)
+[33mf04cbcb[m add get_started example for multiple cameras
+[33m8b04722[m Update README.md
+[33m1f1f784[m Update index.md
+[33mbd6d7c3[m Update README.md
+[33m1b42c6f[m organize objects config
+[33m86ebb3a[m add camera poses to states; isaaclab: support it (#141)
+[33m95c47a6[m ruff: ignore rule D105 and D107
+[33ma449e60[m update kinova_gen3_robotiq_2f85 usd_path
+[33mc013715[m Dev/clean math util quat inv (#140)
+[33m1c65d5a[m KinovaGen3Robotiq2f85 motion planning good
+[33mbd26649[m infra script: fix random_action.py for new state tensor; add new script random_action_ee.py currently only work for isaaclab
+[33mb6030c6[m infra script: random_action_really_pure add decimation to cli argument
+[33m15c3146[m isaaclab: organize code; pass the test
+[33mfc25df6[m bugfix: fix checker devices
+[33m98c4be6[m cancel pre-commit action, use hook instead
+[33m7074cf4[m quickfix: simulators get_states return empty sensors; pass all tests
+[33m6484abc[m infra: add contact force sensor cfg; isaaclab: support it (#137)
+[33m8a33af1[m infra: add PrimitiveFrameCfg; isaaclab: support it (#135)
+[33m6ff093b[m print_usd_joint_names also print body names
+[33m6c4e9df[m update rl doc format
+[33mf2ac6d2[m update rl doc format
+[33m0c69582[m update rl example naming and rl doc video
+[33m2dfdc57[m fix rl doc: add reach origin
+[33ma7d3051[m fix rl doc
+[33mbff36bd[m update rl example doc
+[33me977200[m update rl example doc
+[33m018a4f0[m update rl example doc
+[33m5811f99[m add rl example
+[33m13ef53f[m add debug tasks
+[33m6d1230c[m update rl tasks
+[33m8d83ec5[m train_ppo_vec now support mujoco and isaacgym
+[33mc1a457a[m Bugfix/isaaclab multienv state (#134)
+[33m5d0ec2e[m remove default camera for rl
+[33m34fbd1a[m update links in readme
+[33md0f019c[m add links to wiki
+[33mc04706f[m update object grasping doc and example
+[33ma068f6f[m resize doc understanding image size
+[33m52f5c47[m fix video link
+[33md0d9d30[m update motion planning doc, delete unused
+[33mb9b0f38[m kinova + 2f85 random action success (#132)
+[33mcb91a40[m update grasping demo
+[33m9613e60[m doc: update isaaclab troubleshooting
+[33m14cb322[m doc: add common troubleshooting
+[33m2aab38a[m add robots: kinova_gen3 and kinova_gen3_robotiq_2f85
+[33mb8f6df9[m add isaacgym_animate script to test urdf
+[33mab8b273[m Update real2sim.md
+[33mce13a52[m doc: add page for real2sim
+[33m0ca6a5a[m Update `humanoidbench` training code (#125)
+[33mdf542f5[m train_ppo_vec, reach_origin_cfg: update with tensorized state, run successfully with gymnasium>=1
+[33m33ce476[m Update `humanoidbench` training code (#122)
+[33m3ed8c39[m update gsnet code
+[33m0d0c82b[m adapt eval code with new state representation
+[33m305467c[m fix doc warning (#120)
+[33mce25368[m align doc naming
+[33mf9b9ec6[m update assets, update gsnet, update path, update rootutil for gsnet
+[33m4ced0fa[m add gsnet doc
+[33m47218f9[m update assets name and doc for gsnet
+[33m4e3228d[m update assets name and doc for gsnet
+[33m416bc06[m update assets name and doc for gsnet
+[33m494d8e6[m add gsnet as third_party
+[33mee1e95d[m add gsnet as third_party
+[33m9d509a0[m quickfix: sapien3 and genesis hf file autodownload
+[33m4ca3c15[m add docstrings for base handler and mujoco handler
+[33md71d59e[m 🐛 fix: Rollback to Stand training successfully
+[33ma2b5803[m Dev/optimize mujoco states indexing (#119)
+[33mea3ebc0[m Fix/bug97 2 (#116)
+[33mcb9de94[m Dev/organize get_object_joint_names (#114)
+[33m31e392f[m quickfix: isaacgym get camera images (#112)
+[33mfc678d5[m fix minimal test script to fit tensorized states (#111)
+[33m1884a67[m Quickfix/body and device (#109)
+[33mab09aab[m get_body_names() add argument sort
+[33maa1a5db[m Originally PR 108 (#108)
+[33m3eb527b[m update humanoidbench, speed up ~30x (#96)
+[33m6133fe5[m state_consistency default to be headless
+[33mf0897cc[m add script to test get_states() and set_states() consistency
+[33m1518c6f[m Tensorize states (#92)
+[33mdd2cfc3[m update transfer.sh with printing the cp command
+[33m90f65bf[m pre-commit: upgrade ruff to v0.11.5
+[33mf8fb528[m updated RL infra (#86)
+[33mec535c1[m delete get_observation() method from handler (#89)
+[33mb0e34b6[m update scripts/transfer.sh to take a list of folders instead of a single folder
+[33m9709078[m ignore checkpoint
+[33mfb53aba[m quickfix: isaacgym device bug
+[33m4f6ab5a[m fix diffusion policy hydra command line error
+[33m8bfc135[m Update diffusion_policy.md
+[33m7df282f[m add device property for handlers (#88)
+[33m7a971e8[m parse_util: fit the case when mjcf doesn't have a compiler
+[33mcac1c14[m fix humanoid joint name mismatch (#84)
+[33md662bc5[m add script to clean articulatin root api for usds given task names
+[33mffc735d[m Update diffusion_policy.md
+[33m1f15852[m Update diffusion_policy.md
+[33m304a09a[m update h1 with hand urdf
+[33m51ad7eb[m Dev/hf auto download (#78)
+[33m9bfe52d[m remove useless assets in get_started
+[33mbbf2795[m Clean up training DP and ACT, with better docs (#74)
+[33md96044d[m gitignore: ignore roboverse_data_dev
+[33m24766ba[m doc: update state definition
+[33mfd3bca9[m Update README.md
+[33mb26120d[m doc: docker installation force specify username
+[33m62b393a[m collect demo: fix cuda oom bug
+[33m8f96dd0[m [docs/fix] Add clone project to installation.rst (#68)
+[33m6d2cbf8[m Dev/states as obs (#65)
+[33m842bee2[m Update README.md
+[33m520bd74[m infra script: remove useless scripts
+[33m3c1756e[m rename ee_prim_path to ee_body_name
+[33m4d25ed1[m infra types: dof_pos in EnvState can be None
+[33mc818745[m infra util: move save_util to save_utli/save_util_v1; prepare for save_util_v2
+[33mb7661c9[m infra script: fix random_action; support isaaclab2
+[33m2419d65[m infra script: fix random_action
+[33mcf92a96[m update dp command and doc explaination
+[33mf7541e9[m update dp command and doc
+[33m26ed037[m README: add citation
+[33m9ac3e5e[m doc: update isaacgym installation troubleshooting
+[33m254ebde[m dashboard: conda env naming following dockerfile convension
+[33m4066d78[m Merge pull request #61 from szang18/main
+[33m8ec896a[m Refactor train.py in roboverse_learn to support the updated MetaSim API
+[33m1735937[m Refactor evaluation modules in roboverse_learn to support the updated MetaSim API
+[33med973cc[m README: add star history
+[33mdf8deea[m Merge pull request #59 from EmptyBlueBox/dev_rl_infra
+[33m8e4b81f[m 📝 docs: Remove the note about IsaacLab not being supported, update the humanoidbench_rl documentation.
+[33mdc1f665[m 📝 docs: update humanoid rl doc
+[33m0b4bd0a[m 🐛 fix: Remove error logs for unsupported IsaacLab and optimize the environment reset logic.
+[33m55ee1ec[m 🐛 fix: delete `handler.simulate()` in `reset()`
+[33m1616bf4[m ✨ feat: align IsaacLab `get_states`
+[33m4fc7eb6[m ✨ feat: Support `set_states` only for specified `env_ids`, updating the processing logic of root states and joint states.
+[33m541089c[m 🐛 fix: Modify the decimation value in HumanoidTaskCfg to 1
+[33m5e34514[m Update README.md
+[33mb1a9c47[m Merge pull request #52 from EmptyBlueBox/dev_rl_infra
+[33mb1004eb[m 🐛 fix: SB3 training loggings
+[33m5c93fb4[m 🐛 fix: mujoco `get_states` bug
+[33m3941007[m 💄 style: clean code
+[33m1e17d20[m ♻️ refactor: use `env_state[robots][h1][body][pelvis]` instead of `env_state[robots][h1][pelvis]`
+[33mbff9997[m 📝 docs: humanoidbench rl doc update
+[33m7f54c5b[m ✨ feat: sb3 code one for all simulators
+[33m525aad5[m ✨ feat: humanoidbench reward modification for h1 in mjcf and urdf
+[33m036aa62[m ✨ feat: MuJoCo and IsaacGym get_states alignment
+[33m4f01287[m README: update emoji
+[33m9ae1351[m README: update wish list
+[33m71e3924[m infra cfg: rename enabled to collision_enabled
+[33mfa6fdd9[m doc: delete dashboard link
+[33m60db826[m fix format
+[33m2ef5806[m isaaclab: support fix_base_link and collision
+[33mae0875d[m remove paper pdf
+[33mcff254b[m doc: hide configuration system
+[33m5e40970[m update paper link
+[33m4d38c1a[m doc: prerequisite more smooth
+[33m56faf88[m doc: update curobo installation
+[33mc45cc92[m doc: update project website
+[33mb06ba22[m fix submodule
+[33m862e7a1[m isaacgym: speed up by not using sync_frame_time
+[33mf5760c8[m doc: fix echo command for .env in docker installation
+[33m519c440[m fix isaacgym state setting refreshing bugs
+[33m4bb71eb[m Update diffusion_policy.md: fix zarr path
+[33mb8410e2[m infra script: random_action_really_pure support new task format
+[33mf7e8f53[m docker: clean cache to reduce image size from 39GB to 32GB
+[33mbc70b32[m Merge pull request #30 from RoboVerseOrg/pull/29/head
+[33m1760dad[m Merge pull request #28 from sjtuyinjie/patch-1
+[33m12e48d5[m docker: fix missing libGLU.so.1
+[33m9ee67a6[m docker: install sudo for easier debugging
+[33mfe991e7[m docker: fix default user issue
+[33m4eaa50d[m update naming of merge link in robot
+[33ma2cb0e7[m fix get started isaacgym
+[33m1de10e4[m fix get started isaacgym
+[33mb369bd1[m Merge pull request #27 from EmptyBlueBox/main
+[33mdcf0c92[m Update README.md
+[33m518e50b[m fix docker-compose.yml and Dockerfile
+[33mb2f85b9[m 🐛 fix: Collapse_fixed_joints default as False
+[33m4377a94[m Merge remote-tracking branch 'upstream/main'
+[33mc3c21f5[m 🐛 fix: Compatible with old states format
+[33m6e481c9[m 🐛 fix(config): Resolve the Isaac Gym error related to loading robots when `fix_base_link == False`.
+[33m1ebb59f[m doc: update main page
+[33m2f42fc9[m Merge branch 'RoboVerseOrg:main' into main
+[33m7dbd6aa[m update paper
+[33m329d852[m update badges
+[33mbe064e3[m README: move pictures to project page
+[33m911b0c6[m update paper
+[33m67c2c3c[m 📝 docs: Update humanoidbench rl training doc
+[33m47b3ebf[m update paper link
+[33m9c08b01[m Update README.md
+[33m82804e1[m update paper
+[33m7845c59[m update paper
+[33mf54ca22[m doc: remove unit_test section
+[33m4b4e98a[m delete asset_converter from datasets
+[33m9036721[m Merge pull request #25 from charlietcheng/main
+[33mb51365b[m update asset converter docs
+[33m6f88f26[m added tutorials for cfg system
+[33mdc68154[m reorganized task description, completed multi-env simulator list
+[33m0cae047[m commented missing imports
+[33m6f7a92e[m Merge pull request #24 from RoboVerseOrg/dev/robots_doc
+[33m2e413a2[m added docs
+[33m32a9dea[m formatting readme
+[33m54f36c4[m formatting readme
+[33m79dd0a1[m formatting readme
+[33md8ed94f[m update readme
+[33me5ce4d4[m update readme
+[33m758487b[m Update README.md
+[33mf2edcb6[m Update README.md
+[33mf5bd17a[m update doc and img2video
+[33m7b3c16c[m Merge pull request #23 from RoboVerseOrg/dev/robots_doc
+[33md33ba02[m added descriptions
+[33m37e58f9[m Merge branch 'main' into dev/robots_doc
+[33m073dafe[m moved task description
+[33m03e2eab[m Merge pull request #21 from RoboVerseOrg/dev/robots_doc
+[33ma68a339[m added descriptions of tasks
+[33m7ca31e6[m fixed wrong link
+[33m539902a[m Merge pull request #20 from RoboVerseOrg/dev/robots_doc
+[33m4d27f92[m added scenes
+[33m1636413[m genesis: fix camera fov
+[33md4944e1[m Update README.md
+[33mfda4d8c[m Update overview.md
+[33m8d42f3b[m Merge pull request #19 from RoboVerseOrg/dev/robots_doc
+[33mc8975fe[m added robots docs
+[33m86c4ed4[m Update multi_env.md
+[33m4d4ad4c[m update version from metasim to main
+[33mfadb4da[m update pybullet h1 demo
+[33m1c228a5[m update get started 2
+[33me57741c[m Merge pull request #18 from RoboVerseOrg/dev/pybullet
+[33meb29464[m move prepare data to user guide
+[33m716889e[m update doc: dataset deprecated
+[33mbd7a043[m update doc: delete unused
+[33m9cb6a38[m update doc: prepare data
+[33m2e304b7[m update doc: prepare data
+[33m819a07d[m fix small bugs for importing
+[33m1d60b10[m added Fetch robot to docs
+[33m8a3d605[m adding descriptions for robots
+[33m9866c26[m fixed pybullet robot always fix_base_link bug
+[33m5bd30ee[m update acknowledgement
+[33m79a3a6c[m fix logo
+[33m13461a2[m update badge
+[33m8275d64[m update badge
+[33m4e9f2cf[m update readme logo
+[33m76af4a4[m update contributing guide
+[33m5a404d3[m update README
+[33m7a98c07[m update README
+[33m4382ea1[m update acknowledgement
+[33m8e6adb0[m remove .vscode/tasks.json
+[33m5a3962d[m update image with more compression
+[33mf962aa8[m update images
+[33md5e94e4[m update readme logo
+[33m931b2a7[m update readme logo
+[33m73ca0b8[m update readme logo
+[33m6d691fc[m release version
+[33m83c8219[m Initial commit

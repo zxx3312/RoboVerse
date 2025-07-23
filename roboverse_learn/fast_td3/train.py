@@ -40,7 +40,7 @@ from wrapper import FastTD3EnvWrapper
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.cfg.sensors import PinholeCameraCfg
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 torch.set_float32_matmul_precision("high")
 
 
@@ -144,6 +144,7 @@ def main() -> None:
 
     # ---------------- derive shapes ------------------------------------
     n_act = envs.num_actions
+
     n_obs = envs.num_obs
     n_critic_obs = n_obs  # no privileged obs
     action_low, action_high = -1.0, 1.0

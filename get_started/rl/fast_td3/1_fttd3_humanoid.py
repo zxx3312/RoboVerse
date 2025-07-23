@@ -11,8 +11,8 @@ CONFIG: dict[str, Any] = {
     # Environment
     # -------------------------------------------------------------------------------
     "sim": "mjx",
-    "robots": ["h1"],
-    "task": "humanoidbench:Walk",
+    "robots": ["h1_hand_hb"],
+    "task": "humanoidbench:Push",
     "decimation": 10,
     "train_or_eval": "train",
     # -------------------------------------------------------------------------------
@@ -86,6 +86,7 @@ CONFIG: dict[str, Any] = {
 }
 cfg = CONFIG.get
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 os.environ["TORCHDYNAMO_INLINE_INBUILT_NN_MODULES"] = "1"
 os.environ["OMP_NUM_THREADS"] = "1"
 if cfg("cuda") and os.environ.get("CUDA_VISIBLE_DEVICES") is None:
@@ -141,6 +142,7 @@ class FastTD3EnvWrapper:
 
         self.num_envs = scenario.num_envs
         self.robot = scenario.robots[0]
+
         self.task = scenario.task
         # ----------- initial states --------------------------------------------------
         initial_states, _, _ = get_traj(self.task, self.robot, self.env.handler)

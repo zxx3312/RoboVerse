@@ -494,29 +494,24 @@ class _StairChecker(BaseChecker):
 
 
 ## FIXME: This checker should be removed!
+##FIXED
 @configclass
 class _PushChecker(BaseChecker):
     def check(self, handler: BaseSimHandler) -> torch.BoolTensor:
-        states = handler.get_states()
-        terminated = []
+        """Check if the push task is terminated using batched tensor operations."""
+        from metasim.utils.humanoid_robot_util import (
+            object_position_tensor,
+            robot_site_pos_tensor,
+        )
 
-        for state in states:
-            # Get box position
-            box_pos = state["object"]["pos"]
+        envstate = handler.get_states()
 
-            # Get destination position
-            dest_pos = state["destination"]["pos"]
+        box_pos = object_position_tensor(envstate, "object")  # (B, 3)
+        dest_pos = object_position_tensor(envstate, "destination")  # (B, 3)
 
-            # Calculate distance between box and destination
-            dgoal = torch.norm(box_pos - dest_pos)
-
-            # Terminate when dgoal < 0.05 (success)
-            if dgoal < 0.05:
-                terminated.append(True)
-            else:
-                terminated.append(False)
-
-        return torch.tensor(terminated)
+        d_goal = torch.norm(box_pos - dest_pos, dim=-1)  # (B,)
+        terminated = d_goal < 0.05  # BoolTensor of shape (B,)
+        return terminated
 
 
 ## FIXME: This checker should be removed!
