@@ -7,10 +7,8 @@ import torch
 from metasim.cfg.checkers import _PushChecker
 from metasim.cfg.objects import RigidObjCfg
 from metasim.constants import PhysicStateType
-from metasim.types import EnvState
 from metasim.utils import configclass
 from metasim.utils.humanoid_robot_util import (
-    left_hand_position,
     object_position_tensor,
     robot_site_pos_tensor,
 )

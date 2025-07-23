@@ -501,7 +501,6 @@ class _PushChecker(BaseChecker):
         """Check if the push task is terminated using batched tensor operations."""
         from metasim.utils.humanoid_robot_util import (
             object_position_tensor,
-            robot_site_pos_tensor,
         )
 
         envstate = handler.get_states()
