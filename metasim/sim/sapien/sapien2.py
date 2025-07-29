@@ -37,7 +37,7 @@ from metasim.utils.state import CameraState, ObjectState, RobotState, TensorStat
 class Sapien2Handler(BaseSimHandler):
     """Sapien2 Handler class."""
 
-    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] = {}):
+    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] | None = None):
         assert parse_version(sapien.__version__) >= parse_version("2.0.0"), "Sapien version should be 2.0.0 or higher"
         assert parse_version(sapien.__version__) < parse_version("3.0.0a0"), "Sapien version should be lower than 3.0.0"
         super().__init__(scenario, optional_queries)

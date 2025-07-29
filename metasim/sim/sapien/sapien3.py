@@ -18,23 +18,26 @@ from loguru import logger as log
 from packaging.version import parse as parse_version
 from sapien.utils import Viewer
 
-from metasim.cfg.objects import (ArticulationObjCfg, NonConvexRigidObjCfg,
-                                 PrimitiveCubeCfg, PrimitiveSphereCfg,
-                                 RigidObjCfg)
+from metasim.cfg.objects import (
+    ArticulationObjCfg,
+    NonConvexRigidObjCfg,
+    PrimitiveCubeCfg,
+    PrimitiveSphereCfg,
+    RigidObjCfg,
+)
 from metasim.cfg.robots import BaseRobotCfg
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.queries.base import BaseQueryType
 from metasim.sim import BaseSimHandler, EnvWrapper, GymEnvWrapper
 from metasim.types import Action, EnvState
 from metasim.utils.math import quat_from_euler_np
-from metasim.utils.state import (CameraState, ObjectState, RobotState,
-                                 TensorState)
+from metasim.utils.state import CameraState, ObjectState, RobotState, TensorState
 
 
 class Sapien3Handler(BaseSimHandler):
     """Sapien3 Handler class."""
 
-    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] = {}):
+    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] | None = None):
         assert parse_version(sapien.__version__) >= parse_version("3.0.0a0"), "Sapien3 is required"
         assert parse_version(sapien.__version__) < parse_version("4.0.0"), "Sapien3 is required"
         log.warning("Sapien3 is still under development, some metasim apis yet don't have sapien3 support")

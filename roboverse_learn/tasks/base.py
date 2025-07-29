@@ -12,8 +12,7 @@ from metasim.cfg.scenario import ScenarioCfg
 from metasim.constants import SimType
 from metasim.queries.base import BaseQueryType
 from metasim.sim.base import BaseSimHandler
-from metasim.types import (Action, Extra, Obs, Reward, Success, Termination,
-                           TimeOut)
+from metasim.types import Action, Extra, Obs, Reward, Success, Termination, TimeOut
 from metasim.utils.setup_util import get_sim_handler_class
 
 

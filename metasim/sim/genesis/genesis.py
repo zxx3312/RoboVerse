@@ -7,15 +7,12 @@ from genesis.engine.entities.rigid_entity import RigidEntity, RigidJoint
 from genesis.vis.camera import Camera
 from loguru import logger as log
 
-from metasim.cfg.objects import (ArticulationObjCfg, PrimitiveCubeCfg,
-                                 PrimitiveSphereCfg, RigidObjCfg,
-                                 _FileBasedMixin)
+from metasim.cfg.objects import ArticulationObjCfg, PrimitiveCubeCfg, PrimitiveSphereCfg, RigidObjCfg, _FileBasedMixin
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.queries.base import BaseQueryType
 from metasim.sim import BaseSimHandler, GymEnvWrapper
 from metasim.types import Action, EnvState
-from metasim.utils.state import (CameraState, ObjectState, RobotState,
-                                 TensorState)
+from metasim.utils.state import CameraState, ObjectState, RobotState, TensorState
 
 # Apply IGL compatibility patch
 try:
@@ -37,7 +34,7 @@ except Exception:
 
 
 class GenesisHandler(BaseSimHandler):
-    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] = {}):
+    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] | None = None):
         super().__init__(scenario, optional_queries)
         self._actions_cache: list[Action] = []
         self.object_inst_dict: dict[str, RigidEntity] = {}

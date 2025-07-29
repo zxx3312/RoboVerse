@@ -37,7 +37,7 @@ except:
 
 
 class IsaaclabHandler(BaseSimHandler):
-    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] = {}):
+    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] | None = None):
         super().__init__(scenario, optional_queries)
         self._actions_cache: list[Action] = []
 
