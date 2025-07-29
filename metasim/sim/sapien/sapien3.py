@@ -18,17 +18,20 @@ from loguru import logger as log
 from packaging.version import parse as parse_version
 from sapien.utils import Viewer
 
-from metasim.cfg.objects import (ArticulationObjCfg, NonConvexRigidObjCfg,
-                                 PrimitiveCubeCfg, PrimitiveSphereCfg,
-                                 RigidObjCfg)
+from metasim.cfg.objects import (
+    ArticulationObjCfg,
+    NonConvexRigidObjCfg,
+    PrimitiveCubeCfg,
+    PrimitiveSphereCfg,
+    RigidObjCfg,
+)
 from metasim.cfg.robots import BaseRobotCfg
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.queries.base import BaseQueryType
 from metasim.sim import BaseSimHandler, EnvWrapper, GymEnvWrapper
 from metasim.types import Action, EnvState
 from metasim.utils.math import quat_from_euler_np
-from metasim.utils.state import (CameraState, ObjectState, RobotState,
-                                 TensorState)
+from metasim.utils.state import CameraState, ObjectState, RobotState, TensorState
 
 
 class Sapien3Handler(BaseSimHandler):

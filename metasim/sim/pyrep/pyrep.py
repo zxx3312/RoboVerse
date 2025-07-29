@@ -10,8 +10,7 @@ from pyrep.robots.end_effectors.panda_gripper import PandaGripper
 from rlbench.backend.robot import Robot
 
 from metasim.sim import BaseSimHandler
-from metasim.types import (Action, EnvState, Extra, Obs, Reward, Success,
-                           TimeOut)
+from metasim.types import Action, EnvState, Extra, Obs, Reward, Success, TimeOut
 from metasim.utils import to_snake_case
 
 # TODO: try best to be independent from RLBench

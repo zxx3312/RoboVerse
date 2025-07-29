@@ -7,9 +7,14 @@ import torch
 from isaacgym import gymapi, gymtorch, gymutil  # noqa: F401
 from loguru import logger as log
 
-from metasim.cfg.objects import (ArticulationObjCfg, BaseObjCfg,
-                                 PrimitiveCubeCfg, PrimitiveSphereCfg,
-                                 RigidObjCfg, _FileBasedMixin)
+from metasim.cfg.objects import (
+    ArticulationObjCfg,
+    BaseObjCfg,
+    PrimitiveCubeCfg,
+    PrimitiveSphereCfg,
+    RigidObjCfg,
+    _FileBasedMixin,
+)
 from metasim.cfg.randomization import FrictionRandomCfg, MassRandomCfg
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.constants import PhysicStateType
@@ -17,8 +22,7 @@ from metasim.queries.base import BaseQueryType
 from metasim.sim import BaseSimHandler, EnvWrapper, GymEnvWrapper
 from metasim.types import Action, EnvState
 from metasim.utils.dict import class_to_dict
-from metasim.utils.state import (CameraState, ObjectState, RobotState,
-                                 TensorState)
+from metasim.utils.state import CameraState, ObjectState, RobotState, TensorState
 
 
 class IsaacgymHandler(BaseSimHandler):

@@ -23,24 +23,31 @@ from dm_control import mjcf
 from loguru import logger as log
 from mujoco import mjx
 
-from metasim.cfg.objects import (ArticulationObjCfg, PrimitiveCubeCfg,
-                                 PrimitiveCylinderCfg, PrimitiveSphereCfg)
+from metasim.cfg.objects import ArticulationObjCfg, PrimitiveCubeCfg, PrimitiveCylinderCfg, PrimitiveSphereCfg
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.constants import TaskType
 from metasim.queries.base import BaseQueryType
 from metasim.sim import BaseSimHandler, EnvWrapper, GymEnvWrapper
 from metasim.types import Action
-from metasim.utils.state import (CameraState, ObjectState, RobotState,
-                                 TensorState)
+from metasim.utils.state import CameraState, ObjectState, RobotState, TensorState
 
-from .mjx_helper import (j2t, pack_body_state, pack_root_state, process_entity,
-                         sorted_actuator_ids, sorted_body_ids,
-                         sorted_joint_info, t2j)
+from .mjx_helper import (
+    j2t,
+    pack_body_state,
+    pack_root_state,
+    process_entity,
+    sorted_actuator_ids,
+    sorted_body_ids,
+    sorted_joint_info,
+    t2j,
+)
 from .mjx_querier import MJXQuerier
 
 
 class MJXHandler(BaseSimHandler):
-    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] = {}, *, seed: int | None = None):
+    def __init__(
+        self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] = {}, *, seed: int | None = None
+    ):
         super().__init__(scenario, optional_queries)
 
         self._scenario = scenario

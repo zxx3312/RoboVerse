@@ -8,13 +8,11 @@ import torch
 from loguru import logger as log
 from mathutils import Matrix
 
-from metasim.cfg.objects import (ArticulationObjCfg, PrimitiveCubeCfg,
-                                 PrimitiveSphereCfg, RigidObjCfg)
+from metasim.cfg.objects import ArticulationObjCfg, PrimitiveCubeCfg, PrimitiveSphereCfg, RigidObjCfg
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.queries.base import BaseQueryType
 from metasim.sim import BaseSimHandler, EnvWrapper, IdentityEnvWrapper
-from metasim.types import (Action, EnvState, Extra, Obs, Reward, Success,
-                           Termination)
+from metasim.types import Action, EnvState, Extra, Obs, Reward, Success, Termination
 from metasim.utils.camera_util import get_cam_params
 from metasim.utils.math import matrix_from_quat
 

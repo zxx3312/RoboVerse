@@ -9,8 +9,7 @@ from metasim.cfg.randomization import FrictionRandomCfg
 from metasim.cfg.robots import BaseRobotCfg
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.queries.base import BaseQueryType
-from metasim.types import (Action, EnvState, Extra, Obs, Reward, Success,
-                           TimeOut)
+from metasim.types import Action, EnvState, Extra, Obs, Reward, Success, TimeOut
 from metasim.utils.state import TensorState, state_tensor_to_nested
 
 
@@ -47,7 +46,6 @@ class BaseSimHandler(ABC):
             extra_fn = getattr(self.task, "extra_spec", None)
             if callable(extra_fn):
                 self.spec = extra_fn() or {}
-
 
     def launch(self) -> None:
         """Launch the simulation."""
@@ -130,9 +128,8 @@ class BaseSimHandler(ABC):
             self._state_cache_expire = False
         return self._states
 
-    def get_extra(self) :
-        """Get the extra information of the environment.
-        """
+    def get_extra(self):
+        """Get the extra information of the environment."""
         ret_dict = {}
         for query_name, query_type in self.optional_queries.items():
             ret_dict[query_name] = query_type(self)
