@@ -15,19 +15,22 @@ import pybullet as p
 import pybullet_data
 import torch
 
-from metasim.cfg.objects import ArticulationObjCfg, PrimitiveCubeCfg, PrimitiveSphereCfg, RigidObjCfg
+from metasim.cfg.objects import (ArticulationObjCfg, PrimitiveCubeCfg,
+                                 PrimitiveSphereCfg, RigidObjCfg)
 from metasim.cfg.robots import BaseRobotCfg
 from metasim.cfg.scenario import ScenarioCfg
+from metasim.queries.base import BaseQueryType
 from metasim.sim import BaseSimHandler, EnvWrapper, GymEnvWrapper
 from metasim.types import Action, EnvState
 from metasim.utils.math import convert_quat
-from metasim.utils.state import CameraState, ObjectState, RobotState, TensorState
+from metasim.utils.state import (CameraState, ObjectState, RobotState,
+                                 TensorState)
 
 
 class SinglePybulletHandler(BaseSimHandler):
     """Pybullet Handler class."""
 
-    def __init__(self, scenario: ScenarioCfg):
+    def __init__(self, scenario: ScenarioCfg, optional_queries: dict[str, BaseQueryType] = {}):
         """Initialize the Pybullet Handler.
 
         Args:
@@ -35,7 +38,7 @@ class SinglePybulletHandler(BaseSimHandler):
             num_envs: Number of environments
             headless: Whether to run the simulation in headless mode
         """
-        super().__init__(scenario)
+        super().__init__(scenario, optional_queries)
         self._actions_cache: list[Action] = []
 
     def _build_pybullet(self):
