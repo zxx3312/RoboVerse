@@ -1,5 +1,3 @@
-
-
 # metasim/queries/mjx_queries.py
 from __future__ import annotations
 
@@ -15,14 +13,12 @@ from metasim.sim.mujoco import MujocoHandler
 _site_cache = {}
 
 
-
 def _get_site_id(model: mujoco.MjModel, name: str) -> int:
     key = id(model)
     site_dict = _site_cache.setdefault(key, {})
     if name not in site_dict:
         site_dict[name] = model.site(name).id
     return site_dict[name]
-
 
 
 class SitePos(BaseQueryType):
@@ -43,7 +39,9 @@ class SitePos(BaseQueryType):
             full_name = f"{robot_name}/{self.site_name}" if "/" not in self.site_name else self.site_name
             self._sid = _get_site_id(handler._mj_model, full_name)
         elif isinstance(self.handler, MujocoHandler):
-            self._sid = _get_site_id(handler.physics.model, self.site_name)
+            robot_name = handler.robot.name
+            full_name = f"{robot_name}/{self.site_name}" if "/" not in self.site_name else self.site_name
+            self._sid = _get_site_id(handler.physics.model, full_name)
         else:
             raise ValueError(f"Unsupported handler type: {type(handler)} for SitePosQuery")
 
@@ -52,7 +50,7 @@ class SitePos(BaseQueryType):
         """Return (N_env, 3) site position each time get_extra() is invoked."""
         if isinstance(self.handler, MJXHandler):
             # MJX: site_xpos shape (N_env, N_site, 3)
-            val=self.handler._data.site_xpos[:, self._sid]
+            val = self.handler._data.site_xpos[:, self._sid]
             return torch.from_dlpack(jax.dlpack.to_dlpack(val))
         elif isinstance(self.handler, MujocoHandler):
             # raw MuJoCo is single‑env; expand to (1,3) for consistency

@@ -17,6 +17,8 @@ try:
     import mujoco.viewer
 except ImportError:
     pass
+from typing import TYPE_CHECKING
+
 import numpy as np
 import torch
 from dm_control import mjcf
@@ -24,8 +26,6 @@ from loguru import logger as log
 from mujoco import mjx
 
 from metasim.cfg.objects import ArticulationObjCfg, PrimitiveCubeCfg, PrimitiveCylinderCfg, PrimitiveSphereCfg
-
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from metasim.cfg.scenario import ScenarioCfg
@@ -56,7 +56,7 @@ class MJXHandler(BaseSimHandler):
         *,
         seed: int | None = None,
     ):
-        super().__init__(scenario,optional_queries)
+        super().__init__(scenario, optional_queries)
 
         self._scenario = scenario
         self._seed = seed or 0
@@ -81,7 +81,6 @@ class MJXHandler(BaseSimHandler):
             self.decimation = 25
 
     def launch(self) -> None:
-
         mjcf_root = self._init_mujoco()
 
         # set timestep
@@ -113,7 +112,7 @@ class MJXHandler(BaseSimHandler):
             self.optional_queries = {}
         for query_name, query_type in self.optional_queries.items():
             query_type.bind_handler(self)
-            
+
     def _simulate(self) -> None:
         if self._gravity_compensation:
             self._disable_robotgravity()
@@ -222,9 +221,6 @@ class MJXHandler(BaseSimHandler):
             sensors[name] = j2t(sens_batch[:, sl])
 
         extras = self.get_extra()  # extra observations
-
-
-
         return TensorState(objects=objects, robots=robots, sensors=sensors, cameras=camera_states, extras=extras)
 
     def _set_states(

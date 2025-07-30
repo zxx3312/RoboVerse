@@ -77,6 +77,11 @@ class MujocoHandler(BaseSimHandler):
             self.viewer = mujoco.viewer.launch_passive(self.physics.model.ptr, self.physics.data.ptr)
             self.viewer.sync()
 
+        if self.optional_queries is None:
+            self.optional_queries = {}
+        for query_name, query_type in self.optional_queries.items():
+            query_type.bind_handler(self)
+
     def _init_torque_control(self):
         """Initialize torque control parameters based on robot configuration."""
         joint_names = self.get_joint_names(self.robot.name, sort=True)
