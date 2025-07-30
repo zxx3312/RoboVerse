@@ -9,14 +9,12 @@ import traceback
 from copy import deepcopy
 from functools import partial
 from multiprocessing.connection import Connection
+from typing import TYPE_CHECKING
 
 import torch
 from loguru import logger as log
 
-
-from typing import TYPE_CHECKING
-
-if TYPE_CHECKING: 
+if TYPE_CHECKING:
     from metasim.cfg.scenario import ScenarioCfg
 
 from metasim.sim.base import BaseSimHandler

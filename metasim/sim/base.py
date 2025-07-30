@@ -43,7 +43,6 @@ class BaseSimHandler(ABC):
         """A dict mapping object names to object cfg instances. It includes objects, robot, and checker debug viewers."""
         self._state_cache_expire = True
 
-
     def launch(self) -> None:
         """Launch the simulation."""
         if self.optional_queries is None:
