@@ -10,6 +10,7 @@ from loguru import logger as log
 
 from metasim.cfg.objects import BaseObjCfg
 from metasim.utils.configclass import configclass
+from metasim.utils.humanoid_robot_util import robot_position_tensor
 from metasim.utils.math import euler_xyz_from_quat, matrix_from_quat, quat_from_matrix
 from metasim.utils.tensor_util import tensor_to_str
 
@@ -18,7 +19,7 @@ from .detectors import BaseDetector
 
 try:
     from metasim.sim import BaseSimHandler
-except:
+except Exception:
     pass
 
 
@@ -442,17 +443,10 @@ class _HurdleChecker(BaseChecker):
 ## FIXME: This checker should be removed!
 @configclass
 class _MazeChecker(BaseChecker):
-    def check(self, handler: BaseSimHandler) -> torch.BoolTensor:
-        from metasim.utils.humanoid_robot_util import robot_position
-
+    def check(self, handler):
         states = handler.get_states()
-        terminated = []
-        for state in states:
-            if robot_position(state, handler.robot.name)[2] < 0.2:
-                terminated.append(True)
-            else:
-                terminated.append(False)
-        return torch.tensor(terminated)
+        z = robot_position_tensor(states, handler.robot.name).select(dim=1, index=2)
+        return z < 0.2
 
 
 ## FIXME: This checker should be removed!

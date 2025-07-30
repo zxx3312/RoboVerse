@@ -107,7 +107,7 @@ def _write_articulated_block(
     if act_list is not None and joint_target is not None:
         act_ids = jnp.asarray(act_list, dtype=jnp.int32)
         tgt_vals = joint_target[idx]
-        print("Target control values shape:", tgt_vals.shape)
+        # print("Target control values shape:", tgt_vals.shape)
         ctrl = ctrl.at[idx[:, None], act_ids].set(tgt_vals)
 
     return qpos, qvel, ctrl
@@ -135,8 +135,8 @@ def process_entity(
     joint_ids = jnp.asarray(joint_id_map[name])
     root_fixed = name in fixed_root_names
 
-    print(f"[DEBUG] processing entity, joint_ids: {joint_ids}", name)
-    print(joint_id_map.keys())  # 应该包含 'h1_hand_hb'
+    # print(f"[DEBUG] processing entity, joint_ids: {joint_ids}", name)
+    # print(joint_id_map.keys())  # 应该包含 'h1_hand_hb'
 
     # static model arrays (NumPy)
     jnt_type_np = model.jnt_type
@@ -168,7 +168,7 @@ def process_entity(
         qadr_list = tuple(int(jnt_qposadr_np[j]) for j in non_root_joint_ids)
         vadr_list = tuple(int(jnt_dofadr_np[j]) for j in non_root_joint_ids)
         act_ids = actuator_id_map.get(name)
-        print("Expected actuator count:", len(act_ids))
+        # print("Expected actuator count:", len(act_ids))
         # print("Actuator IDs:", act_ids)
         act_list = None if act_ids is None else tuple(int(a) for a in act_ids)
         qpos, qvel, ctrl = _write_articulated_block(

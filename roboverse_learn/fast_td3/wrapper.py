@@ -70,6 +70,7 @@ class FastTD3EnvWrapper:
         """Reset *all* sub-environments and return the first observation tensor."""
         self.env.reset(states=self._initial_states)
         states = self.env.handler.get_states()
+        print(f"[DEBUG/reset] extras keys: {states.extras.keys()}")
         observation = self.get_humanoid_observation(states)
         observation = observation.to(self.device)
 

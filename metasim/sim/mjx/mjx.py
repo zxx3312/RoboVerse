@@ -271,7 +271,7 @@ class MJXHandler(BaseSimHandler):
 
         mjm = self._mj_model
         mjx_m = self._mjx_model
-        print(ts.robots.keys(), ts.objects.keys(), ts.robots.items(), ts.objects.items())
+        # print(ts.robots.keys(), ts.objects.keys(), ts.robots.items(), ts.objects.items())
 
         # ----- robots ----------------------------------------------------
         self._robot_joint_ids, self._robot_act_ids = {}, {}
@@ -282,7 +282,7 @@ class MJXHandler(BaseSimHandler):
             self._robot_joint_ids[rname] = jnp.asarray(j_ids, dtype=jnp.int32)
             self._robot_act_ids[rname] = jnp.asarray(a_ids, dtype=jnp.int32)
 
-        print("Robot joint IDs:", self._robot_joint_ids, "Robot actuator IDs:", self._robot_act_ids)
+        # print("Robot joint IDs:", self._robot_joint_ids, "Robot actuator IDs:", self._robot_act_ids)
 
         # ----- objects ---------------------------------------------------
         self._object_joint_ids, self._object_act_ids = {}, {}
