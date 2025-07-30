@@ -1,13 +1,16 @@
 from __future__ import annotations
 
 from abc import ABC, abstractmethod
+from typing import TYPE_CHECKING
 
 import torch
 from loguru import logger as log
 
 from metasim.cfg.randomization import FrictionRandomCfg
 from metasim.cfg.robots import BaseRobotCfg
-from metasim.cfg.scenario import ScenarioCfg
+
+if TYPE_CHECKING:
+    from metasim.cfg.scenario import ScenarioCfg
 from metasim.queries.base import BaseQueryType
 from metasim.types import Action, EnvState, Extra, Obs, Reward, Success, TimeOut
 from metasim.utils.state import TensorState, state_tensor_to_nested
@@ -40,12 +43,6 @@ class BaseSimHandler(ABC):
         """A dict mapping object names to object cfg instances. It includes objects, robot, and checker debug viewers."""
         self._state_cache_expire = True
 
-        self.spec = {}
-        # Check if task is defined and there is extra specification
-        if self.task is not None:
-            extra_fn = getattr(self.task, "extra_spec", None)
-            if callable(extra_fn):
-                self.spec = extra_fn() or {}
 
     def launch(self) -> None:
         """Launch the simulation."""
@@ -134,7 +131,7 @@ class BaseSimHandler(ABC):
         """Get the extra information of the environment."""
         ret_dict = {}
         for query_name, query_type in self.optional_queries.items():
-            ret_dict[query_name] = query_type(self)
+            ret_dict[query_name] = query_type()
         return ret_dict
 
     def get_vel(self, obj_name: str, env_ids: list[int] | None = None) -> torch.FloatTensor:

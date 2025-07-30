@@ -3,20 +3,22 @@
 from __future__ import annotations
 
 from typing import Any
+from typing import TYPE_CHECKING
 
-from metasim.sim.base import BaseSimHandler
+if TYPE_CHECKING:
+    from metasim.sim.base import BaseSimHandler
 
 
 class BaseQueryType:
     """Base class for all query types."""
 
-    suported_handlers = []
+    supported_handlers = []
 
     def __init__(self, **kwargs):
         self.handler = None
         self.query_options = kwargs
 
-    def bind_handler(self, handler: BaseSimHandler, *args: Any, **kwargs):
+    def bind_handler(self, handler, *args: Any, **kwargs):
         """Binding handler to the query.
 
         By default, all queries will be binded to the handler at handler.launch() stage.
@@ -25,7 +27,7 @@ class BaseQueryType:
         For different simulation handlers, the queries may be given other optional arguments.
         You can also pass locals() to bind_handler() to access local variables in the handler.
         """
-        if handler.__class__ not in self.suported_handlers:
+        if handler.__class__ not in self.supported_handlers:
             raise ValueError(f"Handler {handler.__class__.__name__} not supported for query {self.__class__.__name__}")
         self.handler = handler
 

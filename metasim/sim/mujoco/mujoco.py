@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 import mujoco
 import mujoco.viewer
 import numpy as np
@@ -9,15 +11,16 @@ from loguru import logger as log
 
 from metasim.cfg.objects import ArticulationObjCfg, PrimitiveCubeCfg, PrimitiveCylinderCfg, PrimitiveSphereCfg
 from metasim.cfg.robots import BaseRobotCfg
-from metasim.cfg.scenario import ScenarioCfg
+
+if TYPE_CHECKING:
+    from metasim.cfg.scenario import ScenarioCfg
+
 from metasim.constants import TaskType
 from metasim.queries.base import BaseQueryType
 from metasim.sim import BaseSimHandler, EnvWrapper, GymEnvWrapper
 from metasim.sim.parallel import ParallelSimWrapper
 from metasim.types import Action
 from metasim.utils.state import CameraState, ObjectState, RobotState, TensorState
-
-from .mujoco_querier import MujocoQuerier
 
 
 class MujocoHandler(BaseSimHandler):
@@ -483,9 +486,6 @@ class MujocoHandler(BaseSimHandler):
             self._set_root_state(obj_name, obj_state, zero_vel)
             self._set_joint_state(obj_name, obj_state, zero_vel)
         self.physics.forward()
-
-    def get_extra(self):
-        return {k: MujocoQuerier.query(v, self) for k, v in (self.spec or {}).items() if v is not None}
 
     def _disable_robotgravity(self):
         gravity_vec = np.array([0.0, 0.0, -9.81])

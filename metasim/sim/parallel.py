@@ -13,7 +13,12 @@ from multiprocessing.connection import Connection
 import torch
 from loguru import logger as log
 
-from metasim.cfg.scenario import ScenarioCfg
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING: 
+    from metasim.cfg.scenario import ScenarioCfg
+
 from metasim.sim.base import BaseSimHandler
 from metasim.types import Action, EnvState, Extra, Obs, Reward, Success
 from metasim.utils.state import join_tensor_states
