@@ -3,8 +3,8 @@
 # Environment
 # -------------------------------------------------------------------------------
 sim: mjx
-robots: [h1]
-task: humanoidbench:Stand
+robots: [h1_hand_hb]
+task: humanoidbench:Push
 decimation: 10
 train_or_eval: train
 
@@ -21,7 +21,7 @@ device_rank: 0
 # -------------------------------------------------------------------------------
 num_envs: 128
 num_eval_envs: 128
-total_timesteps: 100000
+total_timesteps: 4800
 learning_starts: 10
 num_steps: 1
 

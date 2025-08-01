@@ -496,6 +496,11 @@ class _StairChecker(BaseChecker):
 class _PushChecker(BaseChecker):
     def check(self, handler: BaseSimHandler) -> torch.BoolTensor:
         """Check if the push task is terminated using batched tensor operations."""
+
+        from metasim.utils.humanoid_robot_util import (
+            object_position_tensor,
+        )
+
         envstate = handler.get_states()
 
         box_pos = object_position_tensor(envstate, "object")  # (B, 3)
