@@ -138,7 +138,7 @@ class FastTD3EnvWrapper:
         self.device = torch.device(device)
         # Build the underlying MetaSim environment
         EnvironmentClass = get_sim_env_class(SimType(scenario.sim))
-        self.env = EnvironmentClass(scenario)
+        self.env = EnvironmentClass(scenario, optional_queries=scenario.task.extra_spec())
 
         self.num_envs = scenario.num_envs
         self.robot = scenario.robots[0]
