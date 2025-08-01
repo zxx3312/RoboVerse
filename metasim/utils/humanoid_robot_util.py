@@ -368,6 +368,13 @@ def last_actions_tensor(envstate, robot_name: str):
     return envstate.robots[robot_name].extra["last_actions"]
 
 
+def robot_site_pos_tensor(envstate, robot_name: str, site_name):
+    """Returns the height of the neck."""
+    key = f"{robot_name}/{site_name}"
+    site_pos = envstate.extras["sites"][key]["position"]
+    return site_pos
+
+
 def sample_wp(device, num_points, num_wp, ranges):
     """Sample waypoints, relative to the starting point."""
     # position
