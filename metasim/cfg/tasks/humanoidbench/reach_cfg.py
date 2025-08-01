@@ -6,13 +6,6 @@ from metasim.cfg.objects import RigidObjCfg
 from metasim.constants import PhysicStateType
 from metasim.queries.site import SitePos
 from metasim.utils import configclass
-from metasim.utils.humanoid_reward_util import tolerance_tensor
-from metasim.utils.humanoid_robot_util import (
-    dof_pos_tensor,
-    dof_vel_tensor,
-    robot_site_pos_tensor,
-    robot_velocity_tensor,
-)
 
 from .base_cfg import HumanoidBaseReward, HumanoidTaskCfg
 

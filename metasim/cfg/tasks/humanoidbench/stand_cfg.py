@@ -2,7 +2,6 @@
 
 from metasim.cfg.checkers import _StandChecker
 from metasim.utils import configclass
-from metasim.queries.site import SitePos
 
 from .base_cfg import BaseLocomotionReward, HumanoidTaskCfg
 

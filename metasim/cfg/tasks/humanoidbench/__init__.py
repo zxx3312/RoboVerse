@@ -13,6 +13,7 @@ from .package_cfg import PackageCfg
 from .pole_cfg import PoleCfg
 from .powerlift_cfg import PowerliftCfg
 from .push_cfg import PushCfg
+from .reach_cfg import ReachCfg
 from .run_cfg import RunCfg
 from .sit_cfg import SitCfg
 from .slide_cfg import SlideCfg
@@ -20,4 +21,3 @@ from .spoon_cfg import SpoonCfg
 from .stair_cfg import StairCfg
 from .stand_cfg import StandCfg
 from .walk_cfg import WalkCfg
-from .reach_cfg import ReachCfg
