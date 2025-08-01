@@ -10,6 +10,10 @@ from loguru import logger as log
 
 from metasim.cfg.objects import BaseObjCfg
 from metasim.utils.configclass import configclass
+from metasim.utils.humanoid_robot_util import (
+    object_position_tensor,
+    robot_position_tensor,
+)
 from metasim.utils.math import euler_xyz_from_quat, matrix_from_quat, quat_from_matrix
 from metasim.utils.tensor_util import tensor_to_str
 
@@ -18,7 +22,7 @@ from .detectors import BaseDetector
 
 try:
     from metasim.sim import BaseSimHandler
-except:
+except Exception:
     pass
 
 
@@ -442,17 +446,10 @@ class _HurdleChecker(BaseChecker):
 ## FIXME: This checker should be removed!
 @configclass
 class _MazeChecker(BaseChecker):
-    def check(self, handler: BaseSimHandler) -> torch.BoolTensor:
-        from metasim.utils.humanoid_robot_util import robot_position
-
+    def check(self, handler):
         states = handler.get_states()
-        terminated = []
-        for state in states:
-            if robot_position(state, handler.robot.name)[2] < 0.2:
-                terminated.append(True)
-            else:
-                terminated.append(False)
-        return torch.tensor(terminated)
+        z = robot_position_tensor(states, handler.robot.name).select(dim=1, index=2)
+        return z < 0.2
 
 
 ## FIXME: This checker should be removed!
@@ -494,29 +491,19 @@ class _StairChecker(BaseChecker):
 
 
 ## FIXME: This checker should be removed!
+##FIXED
 @configclass
 class _PushChecker(BaseChecker):
     def check(self, handler: BaseSimHandler) -> torch.BoolTensor:
-        states = handler.get_states()
-        terminated = []
+        """Check if the push task is terminated using batched tensor operations."""
+        envstate = handler.get_states()
 
-        for state in states:
-            # Get box position
-            box_pos = state["object"]["pos"]
+        box_pos = object_position_tensor(envstate, "object")  # (B, 3)
+        dest_pos = object_position_tensor(envstate, "destination")  # (B, 3)
 
-            # Get destination position
-            dest_pos = state["destination"]["pos"]
-
-            # Calculate distance between box and destination
-            dgoal = torch.norm(box_pos - dest_pos)
-
-            # Terminate when dgoal < 0.05 (success)
-            if dgoal < 0.05:
-                terminated.append(True)
-            else:
-                terminated.append(False)
-
-        return torch.tensor(terminated)
+        d_goal = torch.norm(box_pos - dest_pos, dim=-1)  # (B,)
+        terminated = d_goal < 0.05  # BoolTensor of shape (B,)
+        return terminated
 
 
 ## FIXME: This checker should be removed!
@@ -609,3 +596,17 @@ class _HighbarChecker(BaseChecker):
         states = handler.get_states()
         terminated = [False] * len(states)
         return torch.tensor(terminated)
+
+
+@configclass
+class _ReachChecker(BaseChecker):
+    def __init__(self, object_name="target", robot_name="h1"):
+        self.object_name = object_name
+        self.robot_name = robot_name
+
+    def check(self, handler) -> torch.BoolTensor:
+        states = handler.get_extra_states()
+        hand_pos = states.robots[self.robot_name].extra["left_hand_pos"]
+        target_pos = states.objects[self.object_name].root_state[:, :3]
+        dist = torch.norm(hand_pos - target_pos, dim=-1)
+        return dist < 0.05
