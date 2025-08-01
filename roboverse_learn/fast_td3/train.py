@@ -40,7 +40,11 @@ from wrapper import FastTD3EnvWrapper
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.cfg.sensors import PinholeCameraCfg
 
+<<<<<<< Updated upstream
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
+=======
+os.environ["CUDA_VISIBLE_DEVICES"] = "5"
+>>>>>>> Stashed changes
 torch.set_float32_matmul_precision("high")
 
 

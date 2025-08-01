@@ -3,8 +3,13 @@
 # Environment
 # -------------------------------------------------------------------------------
 sim: mjx
+<<<<<<< Updated upstream
 robots: [h1_hand_hb]
 task: humanoidbench:Push
+=======
+robots: [h1]
+task: humanoidbench:Reach
+>>>>>>> Stashed changes
 decimation: 10
 train_or_eval: train
 
@@ -19,8 +24,13 @@ device_rank: 0
 # -------------------------------------------------------------------------------
 # Rollout & Timesteps
 # -------------------------------------------------------------------------------
+<<<<<<< Updated upstream
 num_envs: 128
 num_eval_envs: 128
+=======
+num_envs: 512
+num_eval_envs: 512
+>>>>>>> Stashed changes
 total_timesteps: 4800
 learning_starts: 10
 num_steps: 1
