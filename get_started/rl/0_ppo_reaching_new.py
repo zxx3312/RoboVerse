@@ -18,7 +18,11 @@ import tyro
 from gymnasium import spaces
 from loguru import logger as log
 from packaging.version import Version
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import VecEnv
 

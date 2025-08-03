@@ -3,7 +3,11 @@ import numpy as np
 import torch
 from gymnasium import spaces
 from loguru import logger as log
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv
 

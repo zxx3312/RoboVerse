@@ -59,7 +59,11 @@ from omni.isaac.lab.assets import (
     RigidObjectCfg,
 )
 from pxr import PhysxSchema
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 
 try:
     import omni.isaac.core.utils.prims as prim_utils
