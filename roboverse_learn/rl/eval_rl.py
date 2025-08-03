@@ -7,7 +7,11 @@ import imageio
 import numpy as np
 import rootutils
 from loguru import logger as log
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 
 from roboverse_learn.rl.env import RLEnvWrapper
 

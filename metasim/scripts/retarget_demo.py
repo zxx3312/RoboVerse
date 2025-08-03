@@ -45,7 +45,11 @@ import numpy as np
 import torch
 from curobo.types.math import Pose
 from loguru import logger as log
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 from tqdm.rich import tqdm, trange
 
 from metasim.utils.demo_util.loader import load_traj_file, save_traj_file

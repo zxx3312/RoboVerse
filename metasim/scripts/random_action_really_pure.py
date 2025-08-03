@@ -10,7 +10,11 @@ from dataclasses import dataclass
 import torch
 import tyro
 from loguru import logger as log
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 
 from metasim.cfg.scenario import ScenarioCfg
 from metasim.constants import SimType

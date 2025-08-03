@@ -7,7 +7,11 @@ import logging
 import numpy as np
 import torch
 from loguru import logger as log
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 
 from metasim.cfg.control import ControlCfg
 from metasim.cfg.tasks.base_task_cfg import BaseRLTaskCfg, SimParamCfg

@@ -6,8 +6,16 @@ import mujoco
 import torch
 
 from metasim.queries.base import BaseQueryType
-from metasim.sim.mjx import MJXHandler
-from metasim.sim.mujoco import MujocoHandler
+
+try:
+    from metasim.sim.mjx import MJXHandler
+except ImportError:
+    MJXHandler = None
+
+try:
+    from metasim.sim.mujoco import MujocoHandler
+except ImportError:
+    MujocoHandler = None
 
 # ------------------------ util cache ------------------------
 _site_cache = {}

@@ -19,7 +19,11 @@ import rootutils
 import torch
 import tyro
 from loguru import logger as log
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 
 rootutils.setup_root(__file__, pythonpath=True)
 log.configure(handlers=[{"sink": RichHandler(), "format": "{message}"}])
@@ -28,7 +32,11 @@ import open3d as o3d
 import rootutils
 from curobo.types.math import Pose
 from loguru import logger as log
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 
 from get_started.utils import convert_to_ply
 
