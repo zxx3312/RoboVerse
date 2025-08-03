@@ -5,7 +5,8 @@
 sim: mjx
 
 robots: [h1]
-task: humanoidbench:Reach
+task: humanoidbench:Crawl
+
 decimation: 10
 train_or_eval: train
 

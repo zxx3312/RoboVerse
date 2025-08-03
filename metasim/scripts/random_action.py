@@ -4,7 +4,11 @@ from __future__ import annotations
 ## Setup logging
 #########################################
 from loguru import logger as log
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 
 log.configure(handlers=[{"sink": RichHandler(), "format": "{message}"}])
 

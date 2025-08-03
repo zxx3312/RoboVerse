@@ -15,7 +15,11 @@ import numpy as np
 import tyro
 from loguru import logger as log
 from numpy.typing import NDArray
-from rich.logging import RichHandler
+
+try:
+    from rich.logging import RichHandler
+except ImportError:
+    RichHandler = None
 from torchvision.utils import make_grid, save_image
 from tyro import MISSING
 
