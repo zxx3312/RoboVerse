@@ -2,6 +2,7 @@
 
 from metasim.cfg.checkers import _StandChecker
 from metasim.utils import configclass
+from metasim.queries.site import SitePos
 
 from .base_cfg import BaseLocomotionReward, HumanoidTaskCfg
 
@@ -23,7 +24,3 @@ class StandCfg(HumanoidTaskCfg):
     checker = _StandChecker()
     reward_weights = [1.0]
     reward_functions = [StandReward]
-
-    def extra_spec(self):
-        """This task does not require any extra observations."""
-        return {}

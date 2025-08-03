@@ -3,8 +3,8 @@
 # Environment
 # -------------------------------------------------------------------------------
 sim: mjx
-robots: [h1]
-task: humanoidbench:Stair
+robots: [h1_hand_hb]
+task: humanoidbench:Push
 decimation: 10
 train_or_eval: train
 
@@ -19,8 +19,8 @@ device_rank: 0
 # -------------------------------------------------------------------------------
 # Rollout & Timesteps
 # -------------------------------------------------------------------------------
-num_envs: 1024
-num_eval_envs: 1024
+num_envs: 512
+num_eval_envs: 512
 total_timesteps: 100000
 learning_starts: 10
 num_steps: 1
@@ -37,7 +37,7 @@ tau: 0.1
 # Update Schedule
 # -------------------------------------------------------------------------------
 policy_frequency: 2
-num_updates: 12
+num_updates: 6
 
 # -------------------------------------------------------------------------------
 # Optimizer & Network

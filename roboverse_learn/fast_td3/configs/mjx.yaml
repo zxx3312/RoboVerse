@@ -3,8 +3,10 @@
 # Environment
 # -------------------------------------------------------------------------------
 sim: mjx
+
 robots: [h1]
 task: humanoidbench:Crawl
+
 decimation: 10
 train_or_eval: train
 
@@ -19,9 +21,10 @@ device_rank: 0
 # -------------------------------------------------------------------------------
 # Rollout & Timesteps
 # -------------------------------------------------------------------------------
-num_envs: 128
-num_eval_envs: 128
-total_timesteps: 100000
+
+num_envs: 512
+num_eval_envs: 512
+total_timesteps: 4800
 learning_starts: 10
 num_steps: 1
 
