@@ -1,15 +1,21 @@
 # metasim/queries/mjx_queries.py
 from __future__ import annotations
-try:
-    import jax
-    import mujoco
-    from metasim.sim.mjx import MJXHandler
-    from metasim.sim.mujoco import MujocoHandler
-except:
-    pass
+
+import jax
+import mujoco
 import torch
 
 from metasim.queries.base import BaseQueryType
+
+try:
+    from metasim.sim.mjx import MJXHandler
+except ImportError:
+    MJXHandler = None
+
+try:
+    from metasim.sim.mujoco import MujocoHandler
+except ImportError:
+    MujocoHandler = None
 
 # ------------------------ util cache ------------------------
 _site_cache = {}
